@@ -1,3 +1,89 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@keyframes rotateCubeToLeft {
+  from {
+    transform: perspective(1500px) rotateY(0deg) translateZ(20vw);
+    width: 100%;
+  }
+  to {
+    transform: perspective(1500px) rotateY(90deg) translateZ(20vw);
+    width: 0%;
+  }
+}
+
+@keyframes rotateCubeToRight {
+  from {
+    transform: perspective(1500px) rotateY(0deg) translateZ(0vw);
+  }
+  to {
+    transform: perspective(1500px) rotateY(-90deg) translateZ(50vw);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes rotateCubeFromLeft {
+  from {
+    transform: perspective(15000px) rotateY(-50deg) translateZ(50vw);
+  }
+  to {
+    transform: perspective(15000px) rotateY(0deg) translateZ(50vw);
+  }
+}
+
+@keyframes rotateCubeFromRight {
+  from {
+    transform: perspective(200000px) rotateY(120deg) translateZ(50vw);
+  }
+  to {
+    transform: perspective(200000px) rotateY(0deg) translateZ(50vw);
+  }
+}
+
+.section-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.section {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.section.rotate-cube-l {
+  animation: rotateCubeToLeft 1.4s forwards;
+}
+
+.section.rotate-cube-r {
+  animation: rotateCubeToRight 1.4s forwards;
+}
+
+.section.appear-cube-face-l {
+  animation: slideFromRight 1s forwards;
+}
+
+.section.appear-cube-face-r {
+  animation: slideFromLeft 1s forwards;
+}
