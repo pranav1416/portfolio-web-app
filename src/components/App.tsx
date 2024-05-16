@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { Sections } from "./types";
+import { Direction, SectionList, Sections } from "./types";
 import NavBar from "./NavBar";
 import PageContent from "./PageContent";
+import Sidebar from "./Sidebar";
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<Sections>(Sections.ABOUT);
-
+  const [direction, setDirection] = useState<Direction>("r");
   const handleChangeActiveSection = (selectedSection: Sections) => {
+    const calcDirection: Direction =
+      SectionList[activeSection].index > SectionList[selectedSection].index
+        ? "l"
+        : "r";
+    setDirection(calcDirection);
     setActiveSection(selectedSection);
   };
 
@@ -16,7 +22,8 @@ const App: React.FC = () => {
         activeSection={activeSection}
         onNavClick={handleChangeActiveSection}
       />
-      <PageContent activeSection={activeSection} />
+      <Sidebar/>
+      <PageContent activeSection={activeSection} direction={direction} />
     </div>
   );
 };

@@ -10,6 +10,7 @@ export type Section = {
   title: string;
   key: Sections;
   index: number;
+  span: string;
 };
 
 export type Direction = "l" | "r";
@@ -19,24 +20,28 @@ export const SectionList: Record<Sections, Section> = {
     id: "about",
     title: "Pranav Borole",
     key: Sections.ABOUT,
-    index: 0
+    index: 0,
+    span: '1/2'
   },
   [Sections.EDUCATION]: {
     id: "education",
     title: "Qualifications",
     key: Sections.EDUCATION,
-    index: 1
+    index: 1,
+    span: '1/3'
   },
   [Sections.EXPERIENCE]: {
     id: "experience",
     title: "Work Experiences",
     key: Sections.EXPERIENCE,
-    index: 2
+    index: 2,
+    span: '1/3'
   },
   [Sections.ACHIEVEMNTS]: {
     id: "achievements",
     title: "Achievements",
     key: Sections.ACHIEVEMNTS,
-    index: 3
+    index: 3,
+    span: '1/3'
   }
 };

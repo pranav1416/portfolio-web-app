@@ -8,12 +8,12 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ activeSection, onNavClick }) => {
   return (
-    <nav className='top-0 left-0 w-full bg-gray-100 z-5'>
+    <nav className='top-0 left-0 w-full z-5 navbar'>
       <ul className='flex justify-around p-4'>
         {Object.values(SectionList).map((section) => (
           <li
             key={section.id}
-            className={activeSection === section.key ? "active" : ""}
+            className={activeSection === section.key ? `w-${section.span} active` : `w-${section.span}`}
           >
             <button onClick={() => onNavClick(section.key)}>
               {section.title}

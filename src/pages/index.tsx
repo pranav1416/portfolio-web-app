@@ -7,5 +7,3 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
-
-// export const Head: HeadFC = () => <title>About</title>;
